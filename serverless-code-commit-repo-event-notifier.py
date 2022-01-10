@@ -56,8 +56,8 @@ def post_to_slack(webhook_url, slack_data, record):
     tmp["color"] = record.get("color")
     tmp["pretext"] = f"CodeCommit Event detected in `{record.get('awsRegion')}` in Repo:`{record.get('eventSourceARN').split(':')[-1]}`"
     tmp["author_name"] = "Serverless-Repo-Monitor"
-    tmp["author_link"] = "https://github.com/miztiik/serverless-code-commit-repo-event-notifier"
-    tmp["author_icon"] = "https://avatars1.githubusercontent.com/u/12252564?s=400&u=20375d438d970cb22cc4deda79c1f35c3099f760&v=4"
+    tmp["author_link"] = "https://github.com/GorigeRaju1234/serverless-code-commit-repo-event-notifier.git"
+    tmp["author_icon"] = "https://app.slack.com/client/T02CGTQFYG3/C02CDM6M605"
     tmp["title"] = f"Repo Event: {record.get('eventName')}"
     tmp["title_link"] = f"https://console.aws.amazon.com/codesuite/codecommit/repositories/{record.get('eventSourceARN').split(':')[-1]}/browse?region={record.get('awsRegion')}"
     tmp["fields"] = [
@@ -83,7 +83,7 @@ def post_to_slack(webhook_url, slack_data, record):
         }
     ]
     tmp["footer"] = "AWS CodeCommit"
-    tmp["footer_icon"] = "https://raw.githubusercontent.com/miztiik/serverless-code-commit-repo-event-notifier/master/images/aws-code-commit-logo.png"
+    tmp["footer_icon"] = "https://github.com/GorigeRaju1234/serverless-code-commit-repo-event-notifier/blob/master/images/aws-code-commit-logo.png"
     tmp["ts"] = int(dateutil.parser.parse(record.get('eventTime')).timestamp())
     tmp["mrkdwn_in"] = ["pretext", "text", "fields"]
     slack_msg["attachments"].append(tmp)
